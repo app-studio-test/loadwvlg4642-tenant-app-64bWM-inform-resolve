@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: dotnet-deploy
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: loadwvlg4642-tenant-component
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: loadwvlg4642-tenant-component
+    app.kubernetes.io/part-of: loadwvlg4642-tenant-app
+  name: loadwvlg4642-tenant-component
+  namespace: loadwvlg4642-tenant
+spec:
+  ports:
+  - name: http-8081
+    port: 8081
+    protocol: TCP
+    targetPort: 8081
+  selector:
+    app: devfile-dotnet-deploy
+    app.kubernetes.io/instance: loadwvlg4642-tenant-component
+  type: LoadBalancer
+status:
+  loadBalancer: {}
